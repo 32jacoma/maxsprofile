@@ -1,1 +1,132 @@
+   .thumbnail { width: 132px; }
+      .more { display: none; }
+      .video-title { font-size: 14px; }
+      .channel, .video-meta { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="youtube-mark" aria-label="YouTube logo">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 5.5v13l10-6.5z" fill="white"/>
+      </svg>
+    </div>
+    <div class="brand-word">You<span>Tube</span></div>
+  </header>
 
+  <main>
+    <section class="identity">
+      <div class="avatar" aria-label="Placeholder profile picture">
+        <svg viewBox="0 0 100 100" width="100%" height="100%"
+             role="img" aria-label="Generic profile avatar">
+          <circle cx="50" cy="50" r="48" fill="#65758b"/>
+          <circle cx="50" cy="37" r="17" fill="#e5e7eb"/>
+          <path d="M18 88c3-20 15-30 32-30s29 10 32 30"
+                fill="#e5e7eb"/>
+        </svg>
+      </div>
+
+      <div>
+        <h1 class="username">@yourusername</h1>
+        <p class="email">you@example.com</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-heading">Your channel</h2>
+
+      <div class="tabs" role="tablist">
+        <button class="tab" id="history-tab" role="tab"
+                aria-selected="true" aria-controls="history-panel">
+          Watch history
+        </button>
+        <button class="tab" id="about-tab" role="tab"
+                aria-selected="false" aria-controls="about-panel">
+          About
+        </button>
+      </div>
+
+      <div id="history-panel" role="tabpanel">
+        <div class="history-list">
+
+          <article class="video">
+            <img class="thumbnail"
+                 src="https://i.ytimg.com/vi/jfKfPfyJRdk/hqdefault.jpg"
+                 alt="Lofi hip hop radio thumbnail">
+            <div>
+              <h3 class="video-title">
+                lofi hip hop radio - beats to relax / study to
+              </h3>
+              <p class="channel">Lofi Girl</p>
+              <p class="video-meta">Watched recently · Music</p>
+            </div>
+            <button class="more" aria-label="More options">⋮</button>
+          </article>
+
+          <article class="video">
+            <img class="thumbnail"
+                 src="https://i.ytimg.com/vi/aqz-KE-bpKQ/hqdefault.jpg"
+                 alt="Big Buck Bunny thumbnail">
+            <div>
+              <h3 class="video-title">
+                Big Buck Bunny - Official Blender Foundation Short Film
+              </h3>
+              <p class="channel">Blender</p>
+              <p class="video-meta">Watched yesterday · Animation</p>
+            </div>
+            <button class="more" aria-label="More options">⋮</button>
+          </article>
+
+          <article class="video">
+            <img class="thumbnail"
+                 src="https://i.ytimg.com/vi/ScMzIvxBSi4/hqdefault.jpg"
+                 alt="Sample video thumbnail">
+            <div>
+              <h3 class="video-title">
+                A relaxing walk through nature
+              </h3>
+              <p class="channel">Nature Moments</p>
+              <p class="video-meta">Watched 2 days ago · Nature</p>
+            </div>
+            <button class="more" aria-label="More options">⋮</button>
+          </article>
+
+        </div>
+      </div>
+
+      <div id="about-panel" class="about-panel"
+           role="tabpanel" aria-labelledby="about-tab" hidden>
+        <p>
+          This is your profile page. Edit the username, email,
+          and sample videos in index.html to personalize it.
+        </p>
+      </div>
+    </section>
+
+    <footer>Demo profile page · Sample watch history</footer>
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const historyPanel = document.getElementById("history-panel");
+    const aboutPanel = document.getElementById("about-panel");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const showHistory = tab.id === "history-tab";
+
+        tabs.forEach((item) => {
+          item.setAttribute(
+            "aria-selected",
+            String(item === tab)
+          );
+        });
+
+        historyPanel.hidden = !showHistory;
+        aboutPanel.hidden = showHistory;
+      });
+    });
+  </script>
+</body>
+</html>
