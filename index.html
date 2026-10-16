@@ -1,4 +1,179 @@
-   .thumbnail { width: 132px; }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Profile & Watch History</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #0f0f0f;
+      color: #f1f1f1;
+      font-family: Arial, sans-serif;
+    }
+
+    .topbar {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 28px;
+      border-bottom: 1px solid #303030;
+    }
+
+    .youtube-mark {
+      width: 54px;
+      height: 38px;
+      background: #ff0033;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+    }
+
+    .youtube-mark svg { width: 25px; }
+
+    .brand-word {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .brand-word span { font-weight: normal; }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 34px 28px 60px;
+    }
+
+    .identity {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 34px;
+      flex-wrap: wrap;
+    }
+
+    .avatar {
+      width: 116px;
+      height: 116px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #dedede;
+      box-shadow: 0 0 0 3px #444;
+      flex-shrink: 0;
+      background: #65758b;
+    }
+
+    .username {
+      font-size: 28px;
+      margin: 0 0 7px;
+    }
+
+    .email {
+      color: #aaa;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .section-heading {
+      font-size: 23px;
+      margin-bottom: 18px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 28px;
+      border-bottom: 1px solid #303030;
+      margin-bottom: 22px;
+    }
+
+    .tab {
+      background: none;
+      color: #aaa;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 0 2px 13px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .tab[aria-selected="true"] {
+      color: white;
+      border-bottom-color: white;
+    }
+
+    .history-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .video {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr) 38px;
+      gap: 16px;
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    .video:hover { background: #272727; }
+
+    .thumbnail {
+      width: 190px;
+      aspect-ratio: 16 / 9;
+      border-radius: 9px;
+      object-fit: cover;
+      background: #333;
+    }
+
+    .video-title {
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 2px 0 8px;
+    }
+
+    .channel, .video-meta {
+      color: #aaa;
+      font-size: 13px;
+      margin: 0 0 5px;
+      line-height: 1.45;
+    }
+
+    .more {
+      color: #aaa;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .about-panel {
+      color: #aaa;
+      line-height: 1.6;
+      max-width: 650px;
+    }
+
+    footer {
+      color: #777;
+      font-size: 12px;
+      padding-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 26px 14px 40px; }
+      .avatar { width: 88px; height: 88px; }
+      .username { font-size: 23px; }
+
+      .video {
+        grid-template-columns: 132px minmax(0, 1fr);
+        gap: 12px;
+        padding: 7px 3px;
+      }
+
+      .thumbnail { width: 132px; }
       .more { display: none; }
       .video-title { font-size: 14px; }
       .channel, .video-meta { font-size: 12px; }
